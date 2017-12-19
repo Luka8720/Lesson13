@@ -354,7 +354,7 @@ int curtask, tottask;
 
     private void mnureplaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnureplaceActionPerformed
         if(tottask == 0){
-            JOptionPane.showMessageDialog(this, "No task to replace this with, use Insert instead");
+            JOptionPane.showMessageDialog(this, "ERROR - No task to replace this with, use Insert instead");
             return;
         }
         String nm = txtname.getText();
@@ -370,7 +370,10 @@ int curtask, tottask;
     }//GEN-LAST:event_mnureplaceActionPerformed
 
     private void mnuremoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuremoveActionPerformed
-        if(tottask == 0)return;
+        if(tottask == 0){
+            JOptionPane.showMessageDialog(this, "ERROR - No task to remove");
+            return;
+        }
         li.next();
         li.remove();
         tottask--;
@@ -399,7 +402,10 @@ int curtask, tottask;
     }//GEN-LAST:event_mnuremoveActionPerformed
 
     private void mnuinsertbeforeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuinsertbeforeActionPerformed
-        if (tottask == 0) return;
+        if (tottask == 0){
+            JOptionPane.showMessageDialog(this, "ERROR - No task to insert before, use insert after");
+            return;
+        }
         String nm = txtname.getText();
         String d = txtdesc.getText();
         Task t = new Task(nm, d);
@@ -417,6 +423,10 @@ int curtask, tottask;
     }//GEN-LAST:event_mnuinsertbeforeActionPerformed
 
     private void mnushowallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnushowallActionPerformed
+        if(tottask == 0){
+            JOptionPane.showMessageDialog(this, "ERROR - No tasks to show, insert some first");
+            return;
+        }
         String result = "";
         for (int x = 0; x < list.size(); x++) {
             t = (Task)list.get(x);
@@ -446,7 +456,7 @@ int curtask, tottask;
     }//GEN-LAST:event_btnbeforeActionPerformed
 
     private void mnurestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnurestoreActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_mnurestoreActionPerformed
 
     /**
